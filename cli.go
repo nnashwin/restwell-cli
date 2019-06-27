@@ -5,7 +5,7 @@ import (
 	"fmt"
 	pf "github.com/ru-lai/pathfinder"
 	rw "github.com/ru-lai/restwell"
-	"github.com/urfave/cli"
+	"gopkg.in/urfave/cli.v1"
 	"io/ioutil"
 	"log"
 	"net/http"
@@ -36,7 +36,7 @@ func StartCli(args []string) ([]string, error) {
 		{
 			Name:    "createRestServer",
 			Aliases: []string{"crs"},
-			Usage:   "Creates a rest server from a json file stored on disk",
+			Usage:   "Creates a rest server from a path to a json file on disk",
 			Action: func(c *cli.Context) error {
 				if pf.DoesExist(c.Args().First()) == false {
 					err = errors.New(fmt.Sprintf("The file path \"%s\" does not exist. Enter a valid path and try again", c.Args().First()))
